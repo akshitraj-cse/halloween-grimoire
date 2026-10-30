@@ -176,5 +176,25 @@
   $("victoryClose").addEventListener("click", () => { $("victory").hidden = true; recharge(); status.textContent = "Want to go again?"; });
   document.addEventListener("keydown", e => { if (e.key === "Escape") $("victory").hidden = true; });
 
+  // ===== Ambient Spooky Audio Auto-Play Feature =====
+  const bgAudio = $("bg-audio");
+  bgAudio.volume = 0.2; // Sets a subtle 20% background atmosphere volume
+
+  function playAmbientAudio() {
+    bgAudio.play().then(() => {
+      // Clean up event listeners once audio starts successfully
+      document.removeEventListener('click', playAmbientAudio);
+      document.removeEventListener('scroll', playAmbientAudio);
+      document.removeEventListener('keydown', playAmbientAudio);
+    }).catch(() => {
+      // Catches and bypasses browser autoplay policy blocks smoothly
+    });
+  }
+
+  // Automatically triggers on the user's first click, scroll, or keypress anywhere
+  document.addEventListener('click', playAmbientAudio);
+  document.addEventListener('scroll', playAmbientAudio);
+  document.addEventListener('keydown', playAmbientAudio);
+
   render();
 })();
