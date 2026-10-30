@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>The Dark Magic Grimoire</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Creepster&family=Rajdhani:wght@400;500;600&family=Orbitron:wght@500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <nav class="nav">
+    <div class="logo">🕯️ Grimoire OS</div>
+    <div class="tabs" role="tablist">
+      <button class="tab active" data-tab="all" role="tab">All Spells</button>
+      <button class="tab" data-tab="fav" role="tab">Bookmarked Favorites <span id="favCount" class="count">0</span></button>
+    </div>
+  </nav>
+
+  <header class="hero">
+    <h1>The Dark Magic Grimoire</h1>
+    <p>Kirmada's Curse Event: the forbidden archive is open.</p>
+  </header>
+
+  <section class="top">
+    <article class="lore">
+      <div class="avatar" aria-hidden="true">
+        <svg viewBox="0 0 120 120" width="120" height="120">
+          <path d="M60 8C34 8 18 28 18 52v22c0 8 4 14 10 18v14l10-8 8 8 8-8 8 8 8-8 10 8V92c6-4 10-10 10-18V52C102 28 86 8 60 8z" fill="#120a20" stroke="#a855f7" stroke-width="3"/>
+          <ellipse cx="42" cy="54" rx="11" ry="14" fill="#22c55e"/><ellipse cx="78" cy="54" rx="11" ry="14" fill="#22c55e"/>
+          <path d="M44 84q16 12 32 0" fill="none" stroke="#a855f7" stroke-width="3" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <div class="lore-text">
+        <h2>Meet Kirmada</h2>
+        <p class="role">Keeper of the Grimoire, patron of chaos</p>
+        <p>Kirmada was a court alchemist until a midnight experiment went very wrong. Now he haunts this archive, a restless collection of <strong>12 dark spells</strong> scribbled in ash and neon, each with its own ingredients, mana price and consequences. He guards the Master Grimoire jealously.</p>
+        <p class="hint">Think you can seize it? Try clicking the button below.</p>
+        <div class="runaway-zone">
+          <span id="placeholder" class="placeholder" hidden></span>
+          <button id="runaway" class="runaway">Cast Ultimate Spell</button>
+          <p id="runStatus" class="run-status" aria-live="polite"></p>
+        </div>
+      </div>
+    </article>
+
+    <aside class="sponsor" aria-label="Official Event Partner">
+      <span class="badge">⚡ Official Event Partner</span>
+      <h2>Sponsor / Event Partner Realm</h2>
+      <div class="sponsor-name">Kapidhwaj Innovations</div>
+      <p>Powering Kirmada's Curse Event with innovation from beyond the veil.</p>
+      <div class="handle">@kapidhwaj.innovations</div>
+      <a class="cta" href="https://www.instagram.com/kapidhwaj.innovations" target="_blank" rel="noopener noreferrer">Visit on Instagram</a>
+    </aside>
+  </section>
+
+  <main class="spellbook">
+    <div class="search-wrap">
+      <input id="search" type="search" placeholder="Search spells by name or ingredient…" aria-label="Search spells">
+    </div>
+    <div class="filters" id="filters"></div>
+    <div class="grid" id="grid"></div>
+    <p class="empty" id="empty" hidden></p>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="f-brand">
+        <div class="f-title">SPOOK-A-THON</div>
+        <p>Built in the dark by a team of code-wielding spirits.</p>
+      </div>
+      <div class="f-team">
+        <h3>Algorithm Assassins</h3>
+        <p>Akshit Raj &amp; Tanishka Gupta</p>
+        <div class="f-links">
+          <a href="https://www.instagram.com/akshit_raj_13" target="_blank" rel="noopener noreferrer">@akshit_raj_13</a>
+          <a href="https://www.instagram.com/tanishkka_gupta0402" target="_blank" rel="noopener noreferrer">@tanishkka_gupta0402</a>
+        </div>
+      </div>
+    </div>
+    <div class="f-copy">© 2026 Algorithm Assassins · SPOOK-A-THON · All souls reserved</div>
+  </footer>
+
+  <div class="modal-backdrop" id="modal" hidden>
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="mTitle">
+      <button class="close" id="close" aria-label="Close">✕</button>
+      <div id="modalBody"></div>
+    </div>
+  </div>
+
+  <div class="victory" id="victory" hidden>
+    <div class="victory-box">
+      <div class="skull">💀</div>
+      <h2>The Grimoire Is Yours</h2>
+      <p>Kirmada howls in defeat. You have mastered the Ultimate Spell.</p>
+      <button class="fav-btn" id="victoryClose">Return to the archive</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
